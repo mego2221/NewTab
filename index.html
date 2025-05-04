@@ -2,64 +2,85 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Speed Dial</title>
   <style>
-    body {
-      background: #1e1e1e;
-      color: #ffffff;
-      font-family: sans-serif;
+    * {
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 30px;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
     }
     .clock {
-      font-size: 2em;
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     }
     .search-bar input {
-      padding: 10px;
+      padding: 12px;
       font-size: 1em;
-      border: none;
-      border-radius: 8px;
-      width: 300px;
+      border-radius: 12px;
+      border: 2px solid #ddd;
+      width: 320px;
+      margin-bottom: 30px;
+      transition: border-color 0.3s;
+    }
+    .search-bar input:focus {
+      border-color: #4e9fd1;
+      outline: none;
     }
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       gap: 20px;
-      width: 90%;
-      max-width: 800px;
+      max-width: 1000px;
+      width: 100%;
     }
     .tile {
-      background: #2e2e2e;
+      background-color: #ffffff;
+      border-radius: 15px;
       padding: 20px;
-      border-radius: 12px;
       text-align: center;
-      box-shadow: 0 0 8px rgba(0,0,0,0.3);
-      transition: background 0.2s ease;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .tile:hover {
-      background: #3a3a3a;
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
     }
     .tile img {
-      width: 24px;
-      height: 24px;
-      vertical-align: middle;
-      margin-right: 8px;
+      width: 32px;
+      height: 32px;
+      margin-bottom: 10px;
+      transition: transform 0.3s;
     }
     .tile a {
-      color: #61dafb;
       text-decoration: none;
-      font-size: 1.1em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      color: #333;
+      font-size: 1.2em;
+      display: block;
+      font-weight: bold;
+    }
+    .tile a:hover {
+      color: #4e9fd1;
     }
   </style>
 </head>
 <body>
+
   <div class="clock" id="clock">--:--:--</div>
 
   <div class="search-bar">
@@ -86,12 +107,17 @@
     </div>
     <div class="tile">
       <a href="https://gemini.google.com">
-        <img src="https://gemini.google.com/favicon.ico" alt="Gemini">Gemini
+        <img src="https://www.google.com/s2/favicons?domain=gemini.google.com" alt="Gemini">Gemini
       </a>
     </div>
     <div class="tile">
       <a href="https://calendar.google.com">
-        <img src="https://calendar.google.com/favicon.ico" alt="Calendar">Google Calendar
+        <img src="https://www.google.com/s2/favicons?domain=calendar.google.com" alt="Calendar">Google Calendar
+      </a>
+    </div>
+    <div class="tile">
+      <a href="https://chat.openai.com">
+        <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT">ChatGPT
       </a>
     </div>
   </div>
@@ -107,5 +133,6 @@
     setInterval(updateClock, 1000);
     updateClock();
   </script>
+
 </body>
 </html>
