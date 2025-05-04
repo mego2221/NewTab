@@ -13,59 +13,43 @@
     body {
       font-family: 'Arial', sans-serif;
       background-color: #f4f4f9;
-      /* main-containerを中央に配置するためのFlexbox */
+      /* main-containerを画面中央に配置するためのFlexbox */
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      padding: 20px;
+      height: 100vh; /* 画面の高さに合わせて中央寄せ */
+      padding: 20px; /* 画面端との余白 */
     }
 
     /* 検索バーとアイコン群をまとめるコンテナ */
     .main-container {
         display: flex;
-        flex-direction: column; /* 子要素を縦に並べる */
+        flex-direction: column; /* 子要素（フォームとアイコン群）を縦に並べる */
         align-items: center; /* 子要素を水平方向中央に配置 */
         gap: 30px; /* 検索バーとアイコン群の間の余白 */
-        width: 100%; /* 幅を親要素に合わせて調整 */
-        max-width: 600px; /* コンテンツの最大幅 */
+        width: 100%; /* 親要素（body）に合わせて幅を調整 */
+        max-width: 600px; /* コンテンツブロック全体の最大幅 */
     }
 
     /* Google検索フォームのスタイル */
     .google-search-form {
-        display: flex; /* 入力欄とボタンを横に並べる */
+        display: flex; /* 入力欄をFlexアイテムとして配置 */
         width: 100%; /* main-containerの幅に合わせる */
-        max-width: 500px; /* フォーム自体の最大幅 */
+        max-width: 550px; /* フォーム自体の最大幅 (任意で調整) */
         border: 1px solid #ddd;
         border-radius: 25px; /* 角を丸く */
-        overflow: hidden; /* border-radiusからはみ出さないように */
+        overflow: hidden; /* 角丸からはみ出さないように */
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         background-color: #fff; /* 背景色 */
     }
 
     .google-search-form input[type="text"] {
         flex-grow: 1; /* 入力欄が利用可能なスペースを全て取る */
-        padding: 10px 20px;
+        padding: 12px 25px; /* 上下左右のパディング (任意で調整) */
         border: none; /* デフォルトのボーダーを削除 */
         outline: none; /* フォーカス時のアウトラインを削除 */
-        font-size: 1rem;
+        font-size: 1.1rem; /* 文字サイズ (任意で調整) */
         background-color: transparent; /* 背景を透過 */
-    }
-
-     /* 検索ボタン（今回は非表示にしてもOKだが、ここではスタイルを設定） */
-    .google-search-form button {
-        padding: 10px 20px;
-        background-color: #4285F4; /* Googleの青 */
-        color: white;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        /* 必要に応じて非表示に */
-        /* display: none; */
-    }
-
-    .google-search-form button:hover {
-        background-color: #357ae8;
     }
 
     /* 検索入力欄用のラベル（スクリーンリーダー用） */
@@ -80,19 +64,24 @@
         border: 0;
     }
 
-    /* アイコン群をまとめるコンテナ（既存のflexboxスタイルを適用） */
+    /* アイコン群をまとめるコンテナ（Gridスタイルを適用） */
     .icon-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; /* アイコンを中央揃え */
-        gap: 20px; /* 既存のアイコン間の余白 */
+        display: grid; /* Gridレイアウト */
+        /* auto-fit: コンテナの幅に合わせて可能な限り多くの列を作成
+           minmax(60px, 1fr): 各列の最小幅60px, 最大幅は余りスペースを均等に分配 */
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+        gap: 20px; /* グリッドアイテム間の隙間 */
+        justify-content: center; /* グリッド全体をコンテナ内で中央揃え */
         width: 100%; /* main-containerの幅に合わせる */
     }
 
     .icon {
       width: 60px;
       height: 60px;
+      /* Gridアイテムとして中央配置するためにmargin: autoを追加 */
+      margin: auto;
     }
+    /* iconの中のimgタグは既存スタイルを維持 */
     .icon img {
       width: 100%;
       height: 100%;
@@ -112,8 +101,7 @@
         <form class="google-search-form" action="https://www.google.com/search" method="GET">
             <label for="search-box" class="visually-hidden">Google 検索</label>
             <input type="text" id="search-box" name="q" placeholder="Google 検索">
-            <button type="submit">検索</button>
-        </form>
+            </form>
 
         <div class="icon-container">
               <a href="https://github.com" class="icon">
@@ -128,7 +116,7 @@
               <a href="https://gemini.google.com" class="icon">
                 <img src="assets/icons/googlegemini.svg" alt="Gemini">
               </a>
-        </div>
+             </div>
     </div>
 
 </body>
