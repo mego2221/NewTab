@@ -7,7 +7,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #fff3b0;
+      background: linear-gradient(135deg, #fff3b0 0%, #ffe066 100%);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -18,7 +18,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 30px;
+      gap: 40px;
       width: 100%;
       max-width: 600px;
     }
@@ -27,34 +27,42 @@
       max-width: 550px;
       display: flex;
       align-items: center;
-      border: 1px solid #ccc;
-      border-radius: 25px;
+      border-radius: 32px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
       background-color: #fff;
+      border: none;
     }
     .search-box input[type="text"] {
       flex-grow: 1;
-      padding: 12px 20px;
+      padding: 16px 24px;
       border: none;
       outline: none;
-      font-size: 1rem;
+      font-size: 1.1rem;
       background-color: transparent;
     }
     .icon-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-      gap: 20px;
+      display: flex;
       justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
       width: 100%;
     }
-    .icon-container .icon {
-      margin: auto;
+    .icon {
+      text-align: center;
     }
     .icon img {
-      width: 48px;
-      height: 48px;
+      width: 56px;
+      height: 56px;
       display: block;
+      margin: 0 auto;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 12px;
+    }
+    .icon img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+      background: #ffe066;
     }
   </style>
 </head>
@@ -65,16 +73,16 @@
     </form>
     <div class="icon-container">
       <a href="https://github.com" class="icon">
-        <img src="assets/icons/github.svg" alt="GitHub" width="48" height="48">
+        <img src="assets/icons/github.svg" alt="GitHub" width="56" height="56">
       </a>
       <a href="https://x.com" class="icon">
-        <img src="assets/icons/x.svg" alt="X" width="48" height="48">
+        <img src="assets/icons/x.svg" alt="X" width="56" height="56">
       </a>
       <a href="https://youtube.com" class="icon">
-        <img src="assets/icons/youtube.svg" alt="YouTube" width="48" height="48">
+        <img src="assets/icons/youtube.svg" alt="YouTube" width="56" height="56">
       </a>
       <a href="https://gemini.google.com" class="icon">
-        <img src="assets/icons/googlegemini.svg" alt="Gemini" width="48" height="48">
+        <img src="assets/icons/googlegemini.svg" alt="Gemini" width="56" height="56">
       </a>
     </div>
   </div>
