@@ -13,47 +13,46 @@
     body {
       font-family: 'Arial', sans-serif;
       background-color: #f4f4f9;
-      color: #333;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       flex-wrap: wrap;
       padding: 20px;
+      gap: 20px;
     }
     .icon {
       width: 60px;
       height: 60px;
-      margin: 20px;
     }
     .icon img {
       width: 100%;
       height: 100%;
+      object-fit: contain;
       border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+    .icon img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
 
   <a href="https://github.com" class="icon">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Octicons-mark-github.svg" alt="GitHub">
-  </a>
-  <a href="https://www.amazon.co.jp" class="icon">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Amazon_logo_%282019%29.svg" alt="Amazon">
+    <img src="assets/icons/github-logo.svg" alt="GitHub">
   </a>
   <a href="https://twitter.com" class="icon">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Twitter_Logo_2021.svg" alt="Twitter">
-  </a>
-  <a href="https://gemini.google.com" class="icon">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_Gemini_logo.svg" alt="Gemini">
-  </a>
-  <a href="https://calendar.google.com" class="icon">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Google_Calendar_icon_%282013-2017%29.svg" alt="Google Calendar">
+    <img src="assets/icons/x-logo.svg" alt="X (Twitter)">
   </a>
   <a href="https://chat.openai.com" class="icon">
-    <img src="https://openai.com/favicon.ico" alt="ChatGPT">
+    <img src="assets/icons/chaggpt-log.svg" alt="ChatGPT">
+  </a>
+  <a href="https://www.youtube.com" class="icon">
+    <img src="assets/icons/youtube-logo.svg" alt="YouTube">
   </a>
 
 </body>
 </html>
+
