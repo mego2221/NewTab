@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>My Speed Dial</title>
+  <style>
+    body {
+      background: #1e1e1e;
+      color: #ffffff;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    .clock {
+      font-size: 2em;
+    }
+    .search-bar input {
+      padding: 10px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      width: 300px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 800px;
+    }
+    .tile {
+      background: #2e2e2e;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
+      transition: background 0.2s ease;
+    }
+    .tile:hover {
+      background: #3a3a3a;
+    }
+    .tile img {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    .tile a {
+      color: #61dafb;
+      text-decoration: none;
+      font-size: 1.1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock" id="clock">--:--:--</div>
+
+  <div class="search-bar">
+    <form action="https://www.google.com/search" method="get" target="_blank">
+      <input type="text" name="q" placeholder="Google検索..." autofocus>
+    </form>
+  </div>
+
+  <div class="container">
+    <div class="tile">
+      <a href="https://github.com">
+        <img src="https://github.com/favicon.ico" alt="GitHub">GitHub
+      </a>
+    </div>
+    <div class="tile">
+      <a href="https://www.amazon.co.jp">
+        <img src="https://www.amazon.co.jp/favicon.ico" alt="Amazon">Amazon
+      </a>
+    </div>
+    <div class="tile">
+      <a href="https://twitter.com">
+        <img src="https://twitter.com/favicon.ico" alt="Twitter">Twitter
+      </a>
+    </div>
+    <div class="tile">
+      <a href="https://gemini.google.com">
+        <img src="https://gemini.google.com/favicon.ico" alt="Gemini">Gemini
+      </a>
+    </div>
+    <div class="tile">
+      <a href="https://calendar.google.com">
+        <img src="https://calendar.google.com/favicon.ico" alt="Calendar">Google Calendar
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
