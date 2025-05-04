@@ -1,58 +1,135 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Tab</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Tab</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      /* main-containerを中央に配置するためのFlexbox */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    /* 検索バーとアイコン群をまとめるコンテナ */
+    .main-container {
+        display: flex;
+        flex-direction: column; /* 子要素を縦に並べる */
+        align-items: center; /* 子要素を水平方向中央に配置 */
+        gap: 30px; /* 検索バーとアイコン群の間の余白 */
+        width: 100%; /* 幅を親要素に合わせて調整 */
+        max-width: 600px; /* コンテンツの最大幅 */
     }
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f4f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-wrap: wrap;
-      padding: 20px;
-      gap: 20px;
+
+    /* Google検索フォームのスタイル */
+    .google-search-form {
+        display: flex; /* 入力欄とボタンを横に並べる */
+        width: 100%; /* main-containerの幅に合わせる */
+        max-width: 500px; /* フォーム自体の最大幅 */
+        border: 1px solid #ddd;
+        border-radius: 25px; /* 角を丸く */
+        overflow: hidden; /* border-radiusからはみ出さないように */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: #fff; /* 背景色 */
     }
-    .icon {
-      width: 60px;
-      height: 60px;
+
+    .google-search-form input[type="text"] {
+        flex-grow: 1; /* 入力欄が利用可能なスペースを全て取る */
+        padding: 10px 20px;
+        border: none; /* デフォルトのボーダーを削除 */
+        outline: none; /* フォーカス時のアウトラインを削除 */
+        font-size: 1rem;
+        background-color: transparent; /* 背景を透過 */
     }
-    .icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease;
+
+     /* 検索ボタン（今回は非表示にしてもOKだが、ここではスタイルを設定） */
+    .google-search-form button {
+        padding: 10px 20px;
+        background-color: #4285F4; /* Googleの青 */
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        /* 必要に応じて非表示に */
+        /* display: none; */
     }
-    .icon img:hover {
-      transform: scale(1.1);
+
+    .google-search-form button:hover {
+        background-color: #357ae8;
     }
-  </style>
+
+    /* 検索入力欄用のラベル（スクリーンリーダー用） */
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+
+    /* アイコン群をまとめるコンテナ（既存のflexboxスタイルを適用） */
+    .icon-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* アイコンを中央揃え */
+        gap: 20px; /* 既存のアイコン間の余白 */
+        width: 100%; /* main-containerの幅に合わせる */
+    }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+    }
+    .icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+    .icon img:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
 
-  <a href="https://github.com" class="icon">
-    <img src="assets/icons/github.svg" alt="GitHub">
-  </a>
-  <a href="https://x.com" class="icon">
-    <img src="assets/icons/x.svg" alt="X">
-  </a>
-  <a href="https://youtube.com" class="icon">
-    <img src="assets/icons/youtube.svg" alt="YouTube">
-  </a>
-  <a href="https://gemini.google.com" class="icon">
-    <img src="assets/icons/googlegemini.svg" alt="Gemini">
-  </a>
+    <div class="main-container">
+        <form class="google-search-form" action="https://www.google.com/search" method="GET">
+            <label for="search-box" class="visually-hidden">Google 検索</label>
+            <input type="text" id="search-box" name="q" placeholder="Google 検索">
+            <button type="submit">検索</button>
+        </form>
+
+        <div class="icon-container">
+              <a href="https://github.com" class="icon">
+                <img src="assets/icons/github.svg" alt="GitHub">
+              </a>
+              <a href="https://x.com" class="icon">
+                <img src="assets/icons/x.svg" alt="X">
+              </a>
+              <a href="https://youtube.com" class="icon">
+                <img src="assets/icons/youtube.svg" alt="YouTube">
+              </a>
+              <a href="https://gemini.google.com" class="icon">
+                <img src="assets/icons/googlegemini.svg" alt="Gemini">
+              </a>
+        </div>
+    </div>
 
 </body>
 </html>
-
