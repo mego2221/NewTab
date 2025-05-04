@@ -15,78 +15,45 @@
       background-color: #f4f4f9;
       color: #333;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      flex-wrap: wrap;
       padding: 20px;
     }
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
+    .icon {
+      width: 50px;
+      height: 50px;
+      margin: 20px;
+    }
+    .icon img {
       width: 100%;
-      text-align: center;
-    }
-    .tile {
-      background-color: rgba(255, 255, 255, 0.7);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
+      height: 100%;
+      border-radius: 10px;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    }
-    .tile img {
-      width: 36px;
-      height: 36px;
-      margin-bottom: 10px;
-    }
-    .tile a {
-      text-decoration: none;
-      color: #333;
-      font-size: 1.1em;
-      font-weight: bold;
-      display: block;
-    }
-    .tile a:hover {
-      color: #4e9fd1;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="tile">
-      <a href="https://github.com">
-        <img src="https://github.com/favicon.ico" alt="GitHub">GitHub
-      </a>
-    </div>
-    <div class="tile">
-      <a href="https://www.amazon.co.jp">
-        <img src="https://www.amazon.co.jp/favicon.ico" alt="Amazon">Amazon
-      </a>
-    </div>
-    <div class="tile">
-      <a href="https://twitter.com">
-        <img src="https://twitter.com/favicon.ico" alt="Twitter">Twitter
-      </a>
-    </div>
-    <div class="tile">
-      <a href="https://gemini.google.com">
-        <img src="https://www.google.com/s2/favicons?domain=gemini.google.com" alt="Gemini">Gemini
-      </a>
-    </div>
-    <div class="tile">
-      <a href="https://calendar.google.com">
-        <img src="https://www.google.com/s2/favicons?domain=calendar.google.com" alt="Calendar">Google Calendar
-      </a>
-    </div>
-    <div class="tile">
-      <a href="https://chat.openai.com">
-        <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT">ChatGPT
-      </a>
-    </div>
-  </div>
+  <a href="https://github.com" class="icon">
+    <img src="https://github.com/favicon.ico" alt="GitHub">
+  </a>
+  <a href="https://www.amazon.co.jp" class="icon">
+    <img src="https://www.amazon.co.jp/favicon.ico" alt="Amazon">
+  </a>
+  <a href="https://twitter.com" class="icon">
+    <img src="https://twitter.com/favicon.ico" alt="Twitter">
+  </a>
+  <a href="https://gemini.google.com" class="icon">
+    <img src="https://www.google.com/s2/favicons?domain=gemini.google.com" alt="Gemini">
+  </a>
+  <a href="https://calendar.google.com" class="icon">
+    <img src="https://www.google.com/s2/favicons?domain=calendar.google.com" alt="Calendar">
+  </a>
+  <a href="https://chat.openai.com" class="icon">
+    <img src="https://chat.openai.com/favicon.ico" alt="ChatGPT">
+  </a>
 
 </body>
 </html>
