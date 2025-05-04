@@ -19,28 +19,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
       padding: 20px;
-    }
-    .clock {
-      font-size: 2.5em;
-      font-weight: bold;
-      margin-bottom: 20px;
-      color: #333;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .search-bar input {
-      padding: 12px;
-      font-size: 1em;
-      border-radius: 12px;
-      border: 2px solid #ddd;
-      width: 320px;
-      margin-bottom: 30px;
-      transition: border-color 0.3s;
-    }
-    .search-bar input:focus {
-      border-color: #4e9fd1;
-      outline: none;
     }
     .container {
       display: grid;
@@ -48,31 +27,26 @@
       gap: 20px;
       max-width: 1000px;
       width: 100%;
+      text-align: center;
     }
     .tile {
-      background-color: #ffffff;
-      border-radius: 15px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 12px;
       padding: 20px;
       text-align: center;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .tile:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
     .tile img {
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       margin-bottom: 10px;
-      transition: transform 0.3s;
     }
     .tile a {
       text-decoration: none;
       color: #333;
-      font-size: 1.2em;
-      display: block;
+      font-size: 1.1em;
       font-weight: bold;
+      display: block;
     }
     .tile a:hover {
       color: #4e9fd1;
@@ -80,14 +54,6 @@
   </style>
 </head>
 <body>
-
-  <div class="clock" id="clock">--:--:--</div>
-
-  <div class="search-bar">
-    <form action="https://www.google.com/search" method="get" target="_blank">
-      <input type="text" name="q" placeholder="Google検索..." autofocus>
-    </form>
-  </div>
 
   <div class="container">
     <div class="tile">
@@ -121,18 +87,6 @@
       </a>
     </div>
   </div>
-
-  <script>
-    function updateClock() {
-      const now = new Date();
-      const h = String(now.getHours()).padStart(2, '0');
-      const m = String(now.getMinutes()).padStart(2, '0');
-      const s = String(now.getSeconds()).padStart(2, '0');
-      document.getElementById('clock').textContent = `${h}:${m}:${s}`;
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-  </script>
 
 </body>
 </html>
